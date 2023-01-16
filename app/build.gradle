@@ -1,19 +1,26 @@
+import dependencies.Versions
+import dependencies.Application
+import dependencies.Dependencies
+import dependencies.Java
+import dependencies.SupportDependencies
+import dependencies.AndroidTestDependencies
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    compileSdk 32
+    compileSdk = Versions.compileSdk
 
     defaultConfig {
         applicationId "com.training.cleanarchitecture"
-        minSdk 26
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        minSdk = Versions.minSdk
+        targetSdk = Versions.targetSdk
+        versionCode = Application.versionCode
+        versionName = Application.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidTestDependencies.instrumentation_runner
     }
 
     buildTypes {
@@ -27,17 +34,28 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = Java.java_version
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.kotlin_reflect
+    implementation Dependencies.ktx
+
+    // Support
+    implementation SupportDependencies.appCompat
+    implementation SupportDependencies.constraintLayout
+    implementation SupportDependencies.materialDesign
+    implementation SupportDependencies.swipe_refresh_layout
+
 }
