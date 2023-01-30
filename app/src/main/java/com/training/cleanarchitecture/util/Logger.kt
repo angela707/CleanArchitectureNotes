@@ -1,6 +1,7 @@
 package com.training.cleanarchitecture.util
 
 import android.util.Log
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.training.cleanarchitecture.util.Constants.DEBUG
 import com.training.cleanarchitecture.util.Constants.TAG
 
@@ -15,3 +16,11 @@ fun printLogD(className: String?, message: String ) {
     }
 }
 
+fun cLog(msg: String?){
+    msg?.let {
+        if(!DEBUG){
+            FirebaseCrashlytics.getInstance().log(it)
+        }
+    }
+
+}

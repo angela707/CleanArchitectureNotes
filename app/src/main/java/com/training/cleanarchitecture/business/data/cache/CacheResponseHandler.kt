@@ -10,7 +10,7 @@ abstract class CacheResponseHandler<ViewState, Data>(
 
     suspend fun getResult(): DataState<ViewState>? {
         return when (response) {
-            is CacheResult.GenericError<*> -> {
+            is CacheResult.GenericError -> {
                 DataState.error(
                     response = Response(
                         message = "${stateEvent?.errorInfo()} \n\n" +
@@ -26,7 +26,7 @@ abstract class CacheResponseHandler<ViewState, Data>(
                     DataState.error(
                         response = Response(
                             message = "${stateEvent?.errorInfo()} \n\n" +
-                                    "Reason: ${CACHE_DATA_NULL}",
+                                    "Reason: ${CACHE_DATA_NULL}.",
                             uiComponentType = UIComponentType.Dialog(),
                             messageType = MessageType.Error()
                         ),
@@ -39,5 +39,5 @@ abstract class CacheResponseHandler<ViewState, Data>(
         }
     }
 
-    abstract fun handleSuccess(resultObj: Data): DataState<ViewState>
+    abstract suspend fun handleSuccess(resultObj: Data): DataState<ViewState>
 }
