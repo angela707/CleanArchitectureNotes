@@ -2,6 +2,7 @@ package com.training.cleanarchitecture.business.data.network.implementation
 
 import com.training.cleanarchitecture.business.data.network.abstraction.NoteNetworkDataSource
 import com.training.cleanarchitecture.business.domain.model.Note
+import com.training.cleanarchitecture.framework.datasource.network.abstraction.NoteFirestoreService
 import javax.inject.Inject
 import javax.inject.Singleton
 

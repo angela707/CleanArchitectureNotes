@@ -2,6 +2,7 @@ package com.training.cleanarchitecture.business.data.cache.implementation
 
 import com.training.cleanarchitecture.business.data.cache.abstraction.NoteCacheDataSource
 import com.training.cleanarchitecture.business.domain.model.Note
+import com.training.cleanarchitecture.framework.datasource.cache.abstraction.NoteDaoService
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,8 +23,8 @@ class NoteCacheDataSourceImpl @Inject constructor(
         return noteDaoService.deleteNotes(notes)
     }
 
-    override suspend fun updateNote(primaryKey: String, newTitle: String, newBody: String): Int {
-        return noteDaoService.updateNote(primaryKey, newTitle, newBody)
+    override suspend fun updateNote(primaryKey: String, newTitle: String, newBody: String, timestamp: String?): Int {
+        return noteDaoService.updateNote(primaryKey, newTitle, newBody, timestamp)
     }
 
 
