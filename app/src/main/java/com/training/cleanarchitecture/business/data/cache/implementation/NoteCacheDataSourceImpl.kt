@@ -47,4 +47,8 @@ class NoteCacheDataSourceImpl @Inject constructor(
     override suspend fun insertNotes(notes: List<Note>): LongArray {
         return noteDaoService.insertNotes(notes)
     }
+
+    override suspend fun getAllNotes(): List<Note> {
+        return noteDaoService.getAllNotes()
+    }
 }

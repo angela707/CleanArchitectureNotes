@@ -5,6 +5,7 @@ import dependencies.Java
 import dependencies.SupportDependencies
 import dependencies.AndroidTestDependencies
 import dependencies.AnnotationProcessing
+import dependencies.TestDependencies
 
 plugins {
     id 'com.android.application'
@@ -38,6 +39,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = Java.java_version
+    }
+
+    testOptions{
+        unitTests.all{
+            useJunitPlatform()
+        }
     }
 }
 
@@ -79,4 +86,10 @@ dependencies {
     implementation SupportDependencies.materialDesign
     implementation SupportDependencies.swipe_refresh_layout
 
+    // Unit Tests
+    testImplementation TestDependencies.mockk
+    testImplementation TestDependencies.jupiter_api
+    testImplementation TestDependencies.jupiter_params
+    testImplementation TestDependencies.junit4
+    testRuntimeOnly TestDependencies.jupiter_engine
 }
