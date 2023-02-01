@@ -10,6 +10,7 @@ import com.training.cleanarchitecture.business.domain.util.DateUtil
 import com.training.cleanarchitecture.util.isUnitTest
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 
 class DependencyContainer {
 
@@ -30,16 +31,12 @@ class DependencyContainer {
         }
         noteFactory = NoteFactory(dateUtil)
         noteNetworkDataSource = FakeNoteNetworkDataSourceImpl(
-            notesData = noteDataFactory.produceHashMapOfNotes(
-                noteDataFactory.produceListOfNotes()
-            ),
+            notesData = HashMap(),
             deletedNotesData = HashMap(),
             dateUtil = dateUtil
         )
         noteCacheDataSource = FakeNoteCacheDataSourceImpl(
-            notesData = noteDataFactory.produceHashMapOfNotes(
-                noteDataFactory.produceListOfNotes()
-            ),
+            notesData = HashMap(),
             dateUtil = dateUtil
         )
     }
