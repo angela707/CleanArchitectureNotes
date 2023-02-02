@@ -139,7 +139,6 @@ class SearchNotesTest {
             value?.data?.noteList?.let { list ->
                 results = ArrayList(list)
             }
-            println("results: ${results}")
         }
 
         // confirm nothing was retrieved

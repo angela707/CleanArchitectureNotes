@@ -5,6 +5,7 @@ import com.training.cleanarchitecture.business.data.cache.FakeNoteCacheDataSourc
 import com.training.cleanarchitecture.business.data.cache.abstraction.NoteCacheDataSource
 import com.training.cleanarchitecture.business.data.network.FakeNoteNetworkDataSourceImpl
 import com.training.cleanarchitecture.business.data.network.abstraction.NoteNetworkDataSource
+import com.training.cleanarchitecture.business.domain.model.Note
 import com.training.cleanarchitecture.business.domain.model.NoteFactory
 import com.training.cleanarchitecture.business.domain.util.DateUtil
 import com.training.cleanarchitecture.util.isUnitTest
@@ -20,6 +21,7 @@ class DependencyContainer {
     lateinit var noteCacheDataSource: NoteCacheDataSource
     lateinit var noteFactory: NoteFactory
     lateinit var noteDataFactory: NoteDataFactory
+    private var notesData: HashMap<String, Note> = HashMap()
 
     init {
         isUnitTest = true // for Logger.kt
@@ -28,15 +30,20 @@ class DependencyContainer {
     fun build() {
         this.javaClass.classLoader?.let { classLoader ->
             noteDataFactory = NoteDataFactory(classLoader)
+
+            //fake data set
+            notesData = noteDataFactory.produceHashMapOfNotes(
+                noteDataFactory.produceListOfNotes()
+            )
         }
         noteFactory = NoteFactory(dateUtil)
         noteNetworkDataSource = FakeNoteNetworkDataSourceImpl(
-            notesData = HashMap(),
+            notesData = notesData,
             deletedNotesData = HashMap(),
             dateUtil = dateUtil
         )
         noteCacheDataSource = FakeNoteCacheDataSourceImpl(
-            notesData = HashMap(),
+            notesData = notesData,
             dateUtil = dateUtil
         )
     }
