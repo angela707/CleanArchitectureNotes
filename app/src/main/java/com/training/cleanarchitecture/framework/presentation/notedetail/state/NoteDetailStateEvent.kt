@@ -6,7 +6,7 @@ import com.training.cleanarchitecture.business.domain.state.StateMessage
 
 
 sealed class NoteDetailStateEvent : StateEvent {
-    object UpdateNoteEvent : NoteDetailStateEvent() {
+    class UpdateNoteEvent : NoteDetailStateEvent() {
         override fun errorInfo(): String {
             return "Error updating note."
         }
