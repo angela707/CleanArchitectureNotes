@@ -53,7 +53,6 @@ class FakeNoteCacheDataSourceImpl constructor(
         primaryKey: String,
         newTitle: String,
         newBody: String,
-        timestamp: String?
     ): Int {
         if (primaryKey == FORCE_UPDATE_NOTE_EXCEPTION) {
             throw Exception("Something went wrong updating the note.")
@@ -62,8 +61,8 @@ class FakeNoteCacheDataSourceImpl constructor(
             id = primaryKey,
             title = newTitle,
             body = newBody ?: "",
-            updated_at = timestamp ?: dateUtil.getCurrentTimestamp(),
-            created_at = notesData.get(primaryKey)?.created_at ?: dateUtil.getCurrentTimestamp()
+            updated_at = dateUtil.getCurrentTimestamp(),
+            created_at = notesData[primaryKey]?.created_at ?: dateUtil.getCurrentTimestamp()
         )
         return notesData[primaryKey]?.let {
             notesData[primaryKey] = updatedNote

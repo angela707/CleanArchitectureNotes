@@ -10,7 +10,7 @@ interface NoteDaoService {
 
     suspend fun searchNoteById(id: String): Note?
 
-    suspend fun updateNote(primaryKey: String, title: String, body: String?, timestamp: String?): Int
+    suspend fun updateNote(primaryKey: String, title: String, body: String?): Int
 
     suspend fun deleteNote(primaryKey: String): Int
 
