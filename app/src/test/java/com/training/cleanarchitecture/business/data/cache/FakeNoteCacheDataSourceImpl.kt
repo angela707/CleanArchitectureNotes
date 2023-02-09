@@ -3,7 +3,7 @@ package com.training.cleanarchitecture.business.data.cache
 import com.training.cleanarchitecture.business.data.cache.abstraction.NoteCacheDataSource
 import com.training.cleanarchitecture.business.domain.model.Note
 import com.training.cleanarchitecture.business.domain.util.DateUtil
-import com.training.cleanarchitecture.framework.datasource.database.NOTE_PAGINATION_PAGE_SIZE
+import com.training.cleanarchitecture.framework.datasource.cache.database.NOTE_PAGINATION_PAGE_SIZE
 
 const val FORCE_DELETE_NOTE_EXCEPTION = "FORCE_DELETE_NOTE_EXCEPTION"
 const val FORCE_DELETES_NOTE_EXCEPTION = "FORCE_DELETES_NOTE_EXCEPTION"

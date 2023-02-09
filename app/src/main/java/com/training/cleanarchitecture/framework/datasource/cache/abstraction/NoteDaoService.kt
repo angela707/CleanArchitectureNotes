@@ -1,7 +1,7 @@
 package com.training.cleanarchitecture.framework.datasource.cache.abstraction
 
 import com.training.cleanarchitecture.business.domain.model.Note
-import com.training.cleanarchitecture.framework.datasource.database.NOTE_PAGINATION_PAGE_SIZE
+import com.training.cleanarchitecture.framework.datasource.cache.database.NOTE_PAGINATION_PAGE_SIZE
 
 interface NoteDaoService {
     suspend fun insertNote(note: Note): Long

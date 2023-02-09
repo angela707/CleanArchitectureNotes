@@ -9,7 +9,7 @@ import com.training.cleanarchitecture.business.domain.model.NoteFactory
 import com.training.cleanarchitecture.business.interactors.notelist.SearchNotes.Companion.SEARCH_NOTES_NO_MATCHING_RESULTS
 import com.training.cleanarchitecture.business.interactors.notelist.SearchNotes.Companion.SEARCH_NOTES_SUCCESS
 import com.training.cleanarchitecture.di.DependencyContainer
-import com.training.cleanarchitecture.framework.datasource.database.ORDER_BY_ASC_DATE_UPDATED
+import com.training.cleanarchitecture.framework.datasource.cache.database.ORDER_BY_ASC_DATE_UPDATED
 import com.training.cleanarchitecture.framework.presentation.notelist.state.NoteListStateEvent
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue

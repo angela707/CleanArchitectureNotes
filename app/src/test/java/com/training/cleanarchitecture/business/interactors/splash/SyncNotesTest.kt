@@ -5,7 +5,7 @@ import com.training.cleanarchitecture.business.data.network.abstraction.NoteNetw
 import com.training.cleanarchitecture.business.domain.model.Note
 import com.training.cleanarchitecture.business.domain.model.NoteFactory
 import com.training.cleanarchitecture.di.DependencyContainer
-import com.training.cleanarchitecture.framework.datasource.database.ORDER_BY_ASC_DATE_UPDATED
+import com.training.cleanarchitecture.framework.datasource.cache.database.ORDER_BY_ASC_DATE_UPDATED
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import kotlinx.coroutines.runBlocking
