@@ -10,16 +10,15 @@ import javax.inject.Singleton
 class DateUtil @Inject constructor(
     private val dateFormat: SimpleDateFormat
 ) {
-
     fun removeTimeFromDateString(sd: String): String {
         return sd.substring(0, sd.indexOf(" "))
     }
 
-    fun convertFirebaseTimestampToDateString(timestamp: Timestamp): String {
+    fun convertFirebaseTimestampToStringData(timestamp: Timestamp): String {
         return dateFormat.format(timestamp.toDate())
     }
 
-    fun convertDateStringToFirebaseTimestamp(date: String): Timestamp {
+    fun convertStringDateToFirebaseTimestamp(date: String): Timestamp {
         return Timestamp(dateFormat.parse(date))
     }
 
