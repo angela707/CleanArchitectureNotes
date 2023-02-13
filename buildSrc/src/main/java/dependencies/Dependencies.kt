@@ -21,7 +21,7 @@ object Dependencies {
     const val firebase_firestore = "com.google.firebase:firebase-firestore-ktx:${Versions.firebase_firestore}"
     const val firebase_auth = "com.google.firebase:firebase-auth:${Versions.firebase_auth}"
     const val firebase_analytics = "com.google.firebase:firebase-analytics-ktx:${Versions.firebase_analytics}"
-    const val firebase_crashlytics = "com.google.firebase:firebase-crashlytics:${Versions.firebase_crashlytics}"
+    const val firebase_crashlytics = "com.google.firebase:firebase-crashlytics-ktx:${Versions.firebase_crashlytics}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle_version}"
     const val lifecycle_coroutines = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit2_version}"

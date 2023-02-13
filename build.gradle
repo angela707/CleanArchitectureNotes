@@ -1,15 +1,20 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 import dependencies.Build
+
 buildscript {
     repositories {
         gradlePluginPortal()
         google()
-        mavenCentral()
+        maven {
+            url dependencies.Repositories.fabric
+        }
     }
+
     dependencies {
         classpath(Build.androidBuildTools)
         classpath(Build.kotlinGradlePlugin)
         classpath(Build.googleServices)
+        classpath(Build.crashlytics_gradle)
     }
 }
 
